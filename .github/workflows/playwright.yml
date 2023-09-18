@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Install playwright browsers
-        run: npx playwright install --with-deps
       - name: Run tests
         run: | 
           echo "Start the Shopping store application"
@@ -21,5 +19,7 @@ jobs:
           ./shopping-store-linux-amd64 &
           echo "Install dependencies from lockfile"
           npm ci
+          echo "Installing Playwright"
+          npx playwright install --with-deps
           echo "Run Playwright tests"
-          npm run test:ci
+          npx playwright test
