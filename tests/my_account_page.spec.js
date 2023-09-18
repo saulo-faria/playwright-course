@@ -35,5 +35,4 @@ test("Testing my account page - Mocking Request", async({ page }) => {
         }, [loginToken]);
     await myAccountPage.visit();
     await myAccountPage.waitForHeading();
-    await page.pause();
 })
